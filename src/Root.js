@@ -1,13 +1,12 @@
 import React from 'react';
-import { applyMiddleware, compose, createStore } from 'redux';
 import { Provider } from 'react-redux';
-import thunk from 'redux-thunk';
-import { rootReducer } from './store';
+import { configureStore } from '@reduxjs/toolkit';
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const store = createStore(rootReducer, composeEnhancers(applyMiddleware(
-    thunk
-)));
+const store = configureStore({
+    reducer: {
+        // Reducer map goes here
+    }
+});
 
 const Root = () => (
     <Provider store={ store }>
